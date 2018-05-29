@@ -1,4 +1,5 @@
-import React,{PropTypes} from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import {connect} from 'react-redux'; 
 import * as courseAction from '../../actions/courseAction';
 import { bindActionCreators } from 'redux';
@@ -49,10 +50,8 @@ class CoursesPage extends React.Component {
                     value={this.state.course.title}/>
                 <input 
                     className="btn btn-primary btn-lg"
-                    bgColor="#232a2f"
                     type="submit"
                     value="Save"
-                    margin="30px"
                     onClick={this.onClickSave}/>
                 
             </div>

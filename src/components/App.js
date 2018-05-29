@@ -1,10 +1,21 @@
-import React, {PropTypes} from "react";
+import React from "react";
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-//const styled                      = require('styled-components').default;
+
+import { Route, Switch } from 'react-router-dom';
+import AboutPage from "./about/AboutPage";
+import HomePage from "./home/HomePage";
+import CoursesPage from "./course/CoursesPage";
 
 
 import Header from "./common/Header";
 import MySideNav from "./common/navBar";
+
+let testingStatelessFunctionComponent = () => {
+    return (
+        <h1> Something something loans stuff and stuff</h1>
+    );
+};
 
 class App extends React.Component {
     render () {
@@ -43,7 +54,12 @@ class App extends React.Component {
                         flex: '1 auto',
                         padding: '30px'
                     }}>
-                        {this.props.children}
+                        <Switch>
+                            <Route exact path="/" component={HomePage}/>
+                            <Route path = "/ladder" component = {AboutPage}/>
+                            <Route path = "/otc" component = {CoursesPage}/>
+                            <Route path = "/loans" component = {testingStatelessFunctionComponent}/>
+                        </Switch>
                     </div>
                 </div>
             </div>
@@ -52,8 +68,8 @@ class App extends React.Component {
     }
 }
 
-App.propTypes = {
-    children: PropTypes.object.isRequired
-};
+// App.propTypes = {
+//     history: PropTypes.object.isRequired
+// };
 
 export default App;

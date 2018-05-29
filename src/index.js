@@ -1,8 +1,9 @@
 import 'babel-polyfill';
 import React from 'react';
-import {render} from 'react-dom';
-import {Router, browserHistory} from 'react-router';
-import routes from "./routes";
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Router } from 'react-router-dom';
+import history from './history';
+import App from "./components/App";
 import configureStore from './store/configureStore';
 import {Provider} from 'react-redux';
 import './index.css';
@@ -11,9 +12,11 @@ import 'rxjs';
 
 const theRealStore = configureStore({});
 
-render (
+ReactDOM.render (
     <Provider store={theRealStore}>
-        <Router history={browserHistory} routes={routes}/> 
+        <Router history={history}>
+            <App/>
+        </Router> 
     </Provider>
     , document.getElementById('app')
 );

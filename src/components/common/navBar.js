@@ -1,7 +1,9 @@
-import React, {PropTypes} from 'react';
-import {browserHistory, Link, IndexLink} from 'react-router';
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import SideNav, { Nav, NavIcon, NavText } from 'react-sidenav';
+import history from '../../history';
+
+import SideNav, { Nav, NavIcon, NavText } from './sideNavLib';
 import SvgIcon from 'react-icons-kit';
 import { ic_aspect_ratio } from 'react-icons-kit/md/ic_aspect_ratio';
 import { ic_business } from 'react-icons-kit/md/ic_business';
@@ -18,13 +20,13 @@ const Icon20 = props => <SvgIcon size={props.size || 20} icon={props.icon} />;
 
 const onItemSelected = (id, parent) => {
     console.log('trying to redirect to: ' + id);
-    browserHistory.push('/'+id);
+    history.push('/'+id);
 };
 
 const MySideNav = () => {
     return (
         <div style={{
-            fontSize: 15,
+            fontSize: 18,
             background: '#2d353c',
             color: '#a8acb1',
             paddingTop: 0,
@@ -38,7 +40,7 @@ const MySideNav = () => {
                         style={{ borderRadius: '30px', width: 40, height: 40 }}
                     />
                 </div>
-                <div style={{ paddingLeft: 12, paddingTop: 6 }}>
+                <div style={{ paddingLeft: 20, paddingTop: 6 }}>
                     <div style={{ fontSize: 12, color: '#E5E5E5' }}>
                         {' '}Dannibjé{' '}
                     </div>
@@ -49,7 +51,7 @@ const MySideNav = () => {
                 hoverBgColor="#232a2f"
                 hoverColor="red"
                 highlightBgColor="#00acac"
-                defaultSelected="products"
+                defaultSelected="about"
                 highlightColor="#FFF"
                 onItemSelection={onItemSelected}
             >
@@ -59,32 +61,32 @@ const MySideNav = () => {
                     <NavText> Overview </NavText>
                 </Nav>
     
-                <Nav id="about">
+                <Nav id="ladder">
                     <NavIcon><Icon20 icon={ic_business_center} /></NavIcon>
                     <NavText> Ladder </NavText>
                 </Nav>
-                <Nav id="courses">
+                <Nav id="otc">
                     <NavIcon><Icon20 icon={ic_format_list_bulleted} /></NavIcon>
                     <NavText>OTC</NavText>
                 </Nav>
     
-                <Nav id="danni">
+                <Nav id="loans">
                     <NavIcon><Icon20 icon={ic_people} /></NavIcon>
                     <NavText> Loans </NavText>
-                    <Nav id="dashboard2">
+                    <Nav id="dashboard2" isSubNav={true}>
                         <NavIcon><Icon20 size={16} icon={ic_aspect_ratio} /></NavIcon>
                         <NavText> Request </NavText>
                     </Nav>
-                    <Nav id="sales2">
+                    <Nav id="sales2" isSubNav={true}>
                         <NavIcon><Icon20 size={16} icon={ic_business} /></NavIcon>
                         <NavText> Status </NavText>
                     </Nav>
-                    <Nav id="products2">
+                    <Nav id="products2" isSubNav={true}>
                         <NavIcon><Icon20 size={16} icon={ic_business_center} /></NavIcon>
                         <NavText> My Loans </NavText>
                     </Nav>
                 </Nav>
-                <Nav id="sales">
+                <Nav id="log">
                     <NavIcon><Icon20 icon={ic_business} /></NavIcon>
                     <NavText> Log </NavText>
                 </Nav>
