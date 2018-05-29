@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 class AboutPage extends React.Component {
     render() {
         return (
-            <div>
+            <div style={{color:'#E5E5E5'}}>
                 <h1> Þetta er about síða</h1>
                 <p> notar react, react-router, redux og fullt af vitleysu</p>
             </div>

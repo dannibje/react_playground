@@ -37,17 +37,22 @@ class CoursesPage extends React.Component {
     render() {
         console.log('rendering da CoursePage' + JSON.stringify(this.props.coursesProp));
         return (
-            <div>
-                <h1>OF COURSES</h1>
+            <div style={{
+                color:'#E5E5E5'
+            }}>
+                <h1>OTC Page</h1>
                 {this.props.coursesProp.map(this.courseRow)}
-                <h2>Add course</h2>
+                <h2>Add customer</h2>
                 <input 
                     type="text"
                     onChange={this.onTitleChange}
                     value={this.state.course.title}/>
                 <input 
+                    className="btn btn-primary btn-lg"
+                    bgColor="#232a2f"
                     type="submit"
                     value="Save"
+                    margin="30px"
                     onClick={this.onClickSave}/>
                 
             </div>
